@@ -7,6 +7,12 @@ from os import getcwd
 data = pd.read_csv(Path(getcwd(), 'data','pokedex_basic.csv'))
 
 if __name__ == '__main__':
+    def type_count():
+        uni_types = np.sort(pd.unique(data['Type 1']))
+        single = data[data['Type 2'].isna()]
+        dual = data[~data['Type 2'] .isna()]
+        print(single['Type 1'].value_counts())
+
     def dual_type():
         Type_2 = data['Type 2']
         dual_type_count = data['Type 2'].dropna().count()
@@ -22,7 +28,7 @@ if __name__ == '__main__':
         plt.bar(types, dam_avg)
         plt.show()
 
-    type_damage_avg()    
+    type_count()    
 #    input('''What do you want to display?
 #(1) Dual Type count
 #(2) Average of Damage by Type\n''')
