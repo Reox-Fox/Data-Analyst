@@ -15,12 +15,14 @@ if __name__ == '__main__':
         plt.show()
 
     def type_damage_avg():
-       print(data['Type 1'].unique())
-       # for x in data['Type 1'].unique():
-       #     z = np.average(data.loc[data['Type 1' or 'Type 2'] == x]['Attack'])
-       #     print(z)
+        types = np.sort(pd.unique(data['Type 1']))
+        dam_avg = [np.around(np.average(
+            data.loc[data['Type 1' or 'Type 2'] == x]['Attack']))
+        for x in types]
+        plt.bar(types, dam_avg)
+        plt.show()
 
     type_damage_avg()    
-    #input('''What do you want to display?
+#    input('''What do you want to display?
 #(1) Dual Type count
 #(2) Average of Damage by Type\n''')
