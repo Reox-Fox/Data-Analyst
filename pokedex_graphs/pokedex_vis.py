@@ -11,7 +11,9 @@ if __name__ == '__main__':
         uni_types = np.sort(pd.unique(data['Type 1']))
         single = data[data['Type 2'].isna()]
         dual = data[~data['Type 2'] .isna()]
-        print(single['Type 1'].value_counts())
+        single['Type 1'].value_counts().plot(
+            kind='bar', title='Single Type Pokemon by type distribution')
+        plt.show()
 
     def dual_type():
         Type_2 = data['Type 2']
